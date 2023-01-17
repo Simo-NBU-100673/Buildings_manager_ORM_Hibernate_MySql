@@ -53,7 +53,7 @@ abstract class GenericDAO<T> {
     }
 
     //Create many new entities in the persistent layer(DB)
-    public void create(Set<T> entities) {
+    public void create(Collection<T> entities) {
         ensureNotNull(entities);
 
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
@@ -79,22 +79,6 @@ abstract class GenericDAO<T> {
         return entity;
     }
 
-    //read
-    public T get(T entity) {
-        ensureNotNull(entity);
-
-        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
-            entity = session.get(type, entity);
-            transaction.commit();
-        }
-
-        checkIfFound(entity);
-
-        return entity;
-    }
-
-
     //read ALL
     public Collection<T> getAllEntities() {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
@@ -103,7 +87,7 @@ abstract class GenericDAO<T> {
     }
 
     //update
-    public void saveOrUpdate(T entity) {
+    public void update(T entity) {
         ensureNotNull(entity);
 
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
@@ -135,6 +119,6 @@ abstract class GenericDAO<T> {
         }
     }
 
-    public abstract Class<T> getEntityClass();
+    protected abstract Class<T> getEntityClass();
 }
 

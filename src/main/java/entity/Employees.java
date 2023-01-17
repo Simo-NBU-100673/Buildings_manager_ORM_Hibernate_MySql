@@ -73,6 +73,15 @@ public class Employees {
         return Objects.hash(idEmployees, firstName, lastName);
     }
 
+    @Override
+    public String toString() {
+        return "Employees{" +
+                "idEmployees=" + idEmployees +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
+
     public Collection<Contracts> getContractsByIdEmployees() {
         return contractsByIdEmployees;
     }
