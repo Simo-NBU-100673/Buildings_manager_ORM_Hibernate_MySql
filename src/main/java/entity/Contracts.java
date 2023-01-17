@@ -17,7 +17,7 @@ public class Contracts {
     @JoinColumn(name = "Employee_id", referencedColumnName = "idEmployees", nullable = false)
     private Employees employeesByEmployeeId;
     @ManyToOne
-    @JoinColumn(name = "Buildings_id", referencedColumnName = "idBuilding", nullable = false)
+    @JoinColumn(name = "Buildings_id", referencedColumnName = "idBuilding", nullable = false, unique = true)
     private Buildings buildingsByBuildingsId;
 
     @Override
