@@ -20,6 +20,22 @@ public class Employees {
     @OneToMany(mappedBy = "employeesByEmployeeId")
     private Collection<Contracts> contractsByIdEmployees;
 
+    public Employees() {
+        this.firstName = "";
+        this.lastName = "";
+    }
+
+    public Employees(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Employees(int idEmployees, String firstName, String lastName) {
+        this.idEmployees = idEmployees;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public int getIdEmployees() {
         return idEmployees;
     }

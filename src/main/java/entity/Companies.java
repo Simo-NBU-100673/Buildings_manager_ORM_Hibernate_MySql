@@ -47,6 +47,14 @@ public class Companies {
         this.name = name;
     }
 
+
+    public Collection<Contracts> getContractsByIdCompanies() {
+        return contractsByIdCompanies;
+    }
+
+    public void setContractsByIdCompanies(Collection<Contracts> contractsByIdCompanies) {
+        this.contractsByIdCompanies = contractsByIdCompanies;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,11 +68,11 @@ public class Companies {
         return Objects.hash(idCompanies, name);
     }
 
-    public Collection<Contracts> getContractsByIdCompanies() {
-        return contractsByIdCompanies;
-    }
-
-    public void setContractsByIdCompanies(Collection<Contracts> contractsByIdCompanies) {
-        this.contractsByIdCompanies = contractsByIdCompanies;
+    @Override
+    public String toString() {
+        return "Companies{" +
+                "idCompanies=" + idCompanies +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
